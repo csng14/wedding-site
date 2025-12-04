@@ -1,0 +1,81 @@
+/* Body & headings */
+  body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: #fffaf7;
+    color: #2d2d2d;
+    text-align: center;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  /* Corner graphic */
+  .corner-graphic {
+    position: absolute;       /* stay in the corner even when scrolling */
+    bottom: 10px;          /* 10px from bottom of the viewport */
+    left: 10px;            /* 10px from left edge */
+    width: 100px;
+    height: 100px;
+    z-index: -1;           /* behind content */
+    pointer-events: none;  /* so it doesn’t block clicks */
+    
+  }
+
+
+  /* Header & Tabs */
+  header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* center the tabs */
+    align-items: center;
+    padding: 10px 20px;
+    position: relative;      /* allows corner graphic behind tabs */
+    background: transparent; /* remove gray background */
+    border-bottom: none;     /* remove bottom line */
+    z-index: 10;             /* tabs stay above corner graphic */
+  }
+
+  .tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    border-bottom: none;     /* remove underline */
+    transition: color 0.3s;
+  }
+
+  .tab:hover {
+    color: #967BB6;
+  }
+
+  .tab.active {
+    color: #967bb6;
+    border-bottom: none;     /* no underline for active tab */
+  }
+
+  /* Tab content */
+  .tab-content {
+    display: none;
+    padding: 20px;
+  }
+
+  .tab-content.active {
+    display: block;
+  }
+
+  /* Optional: images inside content */
+  .tab-content img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 20px;
+    background: #f8f8f8;
+    border-top: 1px solid #ddd;
+    margin-top: 30px;
+  }

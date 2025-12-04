@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Carmen & Felix</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+  @media (max-width: 480px) {
+  .tab {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}
+  /* Body & headings */
+  body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: #fffaf7;
+    color: #2d2d2d;
+    text-align: center;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  /* Header & Tabs */
+  header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* center the tabs */
+    align-items: center;
+    padding: 10px 20px;
+    position: relative;      /* allows corner graphic behind tabs */
+    background: transparent; /* remove gray background */
+    border-bottom: none;     /* remove bottom line */
+    z-index: 10;             /* tabs stay above corner graphic */
+  }
+
+  .tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    border-bottom: none;     /* remove underline */
+    transition: color 0.3s;
+  }
+
+  .tab:hover {
+    color: #967BB6;
+  }
+
+  .tab.active {
+    color: #967bb6;
+    border-bottom: none;     /* no underline for active tab */
+  }
+
+  /* Tab content */
+  .tab-content {
+    display: none;
+    padding: 20px;
+  }
+
+  .tab-content.active {
+    display: block;
+  }
+
+  /* Optional: images inside content */
+  .tab-content img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+  }
+
+  /* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: transparent;  /* no background */
+  border-top: none;
+}
+
+.footer-content {
+  display: inline-flex;       /* align text and image horizontally */
+  align-items: center;        /* vertically center the image with the text */
+  gap: 10px;                  /* space between text and image */
+}
+
+.corner-graphic {
+  position: relative;
+  top: -2px;   /* nudges image up slightly */
+  width: 100px;
+  height: auto;
+}
+
+
+
+</style>
+
+</head>
+<body>
+
+ <header>
+  <div class="tab active" data-tab="hero">Home</div>
+  <div class="tab" data-tab="details">Event Details</div>
+    <div class="tab" data-tab="schedule">Schedule</div>
+    <div class="tab" data-tab="dresscode">Dress Code</div>
+    <div class="tab" data-tab="travel">Travel & Stay</div>
+    <div class="tab" data-tab="registry">Registry</div>
+    <div class="tab" data-tab="rsvp">RSVP</div>
+  </header>
+
+
+<!-- Tabs Content -->
+<section id="hero" class="tab-content active">
+  <h1>Carmen & Felix</h1>
+  <p class="date">May 23, 2026 </p>
+  <p>Brooklyn, NY</p>
+  <img src="images/carmen-felix-MPAK-wedding.jpg" alt="Carmen & Felix engagement photo">
+  <p>We’re so excited to celebrate our big day with the people we love most.</p>
+</section>
+
+<section id="details" class="tab-content">
+  <h2>Event Details</h2>
+  <div class="info-grid">
+    <div>
+      <h3>Ceremony & Reception</h3>
+      <p>Time: 6 PM</p>
+      <p>Location: <a href="https://maps.app.goo.gl/HFXh9n3628yhXoxt7" target="_blank" rel="noopener noreferrer">Rule of Thirds</a></p>
+    </div>
+    <div>
+    </div>
+  </div>
+</section>
+
+<section id="schedule" class="tab-content">
+  <h2>Schedule</h2>
+  <ul class="timeline">
+    <li>3:30 PM — Guests arrive</li>
+    <li>4:00 PM — Ceremony</li>
+    <li>5:00 PM — Cocktails</li>
+    <li>6:30 PM — Dinner</li>
+    <li>8:30 PM — Dancing</li>
+  </ul>
+</section>
+
+<section id="dresscode" class="tab-content">
+  <h2>Dress Code</h2>
+  <p>Formal / Cocktail Attire<br>Wear something you feel beautiful in ❤️</p>
+</section>
+
+<section id="travel" class="tab-content">
+  <h2>Travel & Stay</h2>
+  <p>We recommend staying in Brooklyn or Lower Manhattan.<br>Hotel details coming soon.</p>
+</section>
+
+<section id="registry" class="tab-content">
+  <h2>Registry</h2>
+  <p>Your presence is the best gift. If you'd like to contribute, our registry will be shared here soon.</p>
+</section>
+
+<section id="rsvp" class="tab-content">
+  <h2>RSVP</h2>
+  <form name="rsvp" method="POST" data-netlify="true" class="rsvp-form">
+    <input type="hidden" name="form-name" value="rsvp">
+    <input type="text" name="name" placeholder="Your name" required>
+    <input type="email" name="email" placeholder="Your email" required>
+    <select name="attendance">
+      <option value="">Will you attend?</option>
+      <option value="yes">Yes — can’t wait!</option>
+      <option value="no">Sorry — won’t be able to make it</option>
+    </select>
+    <textarea name="notes" placeholder="Dietary needs / plus one / notes"></textarea>
+    <button type="submit">Submit RSVP</button>
+  </form>
+</section>
+
+<footer>
+  <div class="footer-content">
+    <p>Made with love by Carmen & Felix</p>
+    <img src="images/cartoon-graphic.png" alt="cute" class="corner-graphic">
+  </div>
+</footer>
+
+<script>
+  const tabs = document.querySelectorAll('.tab');
+  const tabContents = document.querySelectorAll('.tab-content');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      tabContents.forEach(content => {
+        content.classList.remove('active');
+        if(content.id === tab.dataset.tab){
+          content.classList.add('active');
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
