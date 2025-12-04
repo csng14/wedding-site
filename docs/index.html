@@ -101,7 +101,7 @@ footer {
 
 </head>
 <body>
-
+  <div id="protected-content" style="display:none;">
  <header>
   <div class="tab active" data-tab="hero">Home</div>
   <div class="tab" data-tab="details">Event Details</div>
@@ -183,7 +183,24 @@ footer {
     <img src="images/cartoon-graphic.png" alt="cute" class="corner-graphic">
   </div>
 </footer>
+<script>
+    // change this to your real password
+    const SITE_PASSWORD = "carmenheartsfelix";
 
+    function unlockSite() {
+      const entered = prompt("Enter the password to view this site:");
+
+      if (entered === SITE_PASSWORD) {
+        const content = document.getElementById("protected-content");
+        if (content) content.style.display = "block";
+      } else {
+        // optional: you can customize this message
+        document.body.innerHTML = "<h2>Access denied</h2>";
+      }
+    }
+
+    window.addEventListener("load", unlockSite);
+  </script>
 <script>
   const tabs = document.querySelectorAll('.tab');
   const tabContents = document.querySelectorAll('.tab-content');
