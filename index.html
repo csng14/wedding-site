@@ -211,14 +211,31 @@ footer {
     });
   });
 </script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
-const swiper = new Swiper('.swiper', {
-    loop: true,
-    pagination: { el: '.swiper-pagination' },
-    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
-});
+    let swiper; // declare swiper so it’s accessible
+
+    function unlockSite() {
+      const entered = prompt("Enter the password to view this site:");
+
+      if (entered === SITE_PASSWORD) {
+        const content = document.getElementById("protected-content");
+        if (content) content.style.display = "block";
+
+        // initialize swiper only after content becomes visible
+        swiper = new Swiper('.swiper', {
+          loop: true,
+          pagination: { el: '.swiper-pagination' },
+          navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
+        });
+
+      } else {
+        document.body.innerHTML = "<h2>Access denied</h2>";
+      }
+    }
+
+    window.addEventListener("load", unlockSite);
 </script>
+
 
 </body>
 </html>
