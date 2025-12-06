@@ -96,6 +96,26 @@ footer {
 }
 
 
+/* Desktop/tablet: shrink slider images */
+@media (min-width: 481px) {
+  .swiper {
+    width: 60%;       /* make the whole carousel narrower */
+    margin: 0 auto;
+  }
+
+  .swiper-slide img {
+    max-height: 400px;  /* optional: limit height */
+    object-fit: cover;  /* keeps them looking nice */
+    border-radius: 12px;
+  }
+}
+
+/* Mobile: keep full width (no changes needed) */
+@media (max-width: 480px) {
+  .swiper {
+    width: 100%;
+  }
+}
 
 </style>
 
