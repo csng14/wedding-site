@@ -175,24 +175,35 @@ footer {
     <img src="images/cartoon-graphic.png" alt="cute" class="corner-graphic">
   </div>
 </footer>
+
+<!-- Load Swiper JS FIRST -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 <script>
-    // change this to your real password
-    const SITE_PASSWORD = "carmenheartsfelix";
+  const SITE_PASSWORD = "carmenheartsfelix";
+  let swiper;
 
-    function unlockSite() {
-      const entered = prompt("Enter the password to view this site:");
+  function unlockSite() {
+    const entered = prompt("Enter the password to view this site:");
+    if (entered === SITE_PASSWORD) {
+      const content = document.getElementById("protected-content");
+      content.style.display = "block";
 
-      if (entered === SITE_PASSWORD) {
-        const content = document.getElementById("protected-content");
-        if (content) content.style.display = "block";
-      } else {
-        // optional: you can customize this message
-        document.body.innerHTML = "<h2>Access denied</h2>";
-      }
+      // Now that content is visible AND Swiper JS is loaded — init Swiper
+      swiper = new Swiper('.swiper', {
+        loop: true,
+        pagination: { el: '.swiper-pagination' },
+        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
+      });
+    } else {
+      document.body.innerHTML = "<h2>Access denied</h2>";
     }
+  }
 
-    window.addEventListener("load", unlockSite);
-  </script>
+  // Make sure this fires ONLY ONCE
+  window.onload = unlockSite;
+</script>
+
 <script>
   const tabs = document.querySelectorAll('.tab');
   const tabContents = document.querySelectorAll('.tab-content');
@@ -204,36 +215,12 @@ footer {
 
       tabContents.forEach(content => {
         content.classList.remove('active');
-        if(content.id === tab.dataset.tab){
+        if (content.id === tab.dataset.tab) {
           content.classList.add('active');
         }
       });
     });
   });
-</script>
-<script>
-    let swiper; // declare swiper so it’s accessible
-
-    function unlockSite() {
-      const entered = prompt("Enter the password to view this site:");
-
-      if (entered === SITE_PASSWORD) {
-        const content = document.getElementById("protected-content");
-        if (content) content.style.display = "block";
-
-        // initialize swiper only after content becomes visible
-        swiper = new Swiper('.swiper', {
-          loop: true,
-          pagination: { el: '.swiper-pagination' },
-          navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
-        });
-
-      } else {
-        document.body.innerHTML = "<h2>Access denied</h2>";
-      }
-    }
-
-    window.addEventListener("load", unlockSite);
 </script>
 
 
