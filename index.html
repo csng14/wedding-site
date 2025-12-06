@@ -100,6 +100,8 @@ footer {
 </style>
 
 </head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
 <body>
   <div id="protected-content" style="display:none;">
  <header>
@@ -116,7 +118,22 @@ footer {
   <h1>Carmen & Felix</h1>
   <p class="date">May 23, 2026 </p>
   <p>Brooklyn, NY</p>
-  <img src="images/carmen-felix-MPAK-wedding.jpg" alt="Carmen & Felix engagement photo">
+  <div class="swiper">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide"><img src="carmen-punch.jpeg" /></div>
+    <div class="swiper-slide"><img src="felix-jump.jpeg" /></div>
+    <div class="swiper-slide"><img src="looking-down.jpg" /></div>
+    <div class="swiper-slide"><img src="courtyard-laugh.jpeg" /></div>
+    <div class="swiper-slide"><img src="squat.jpeg" /></div>
+  </div>
+  <!-- navigation buttons -->
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+
+  <!-- dots -->
+  <div class="swiper-pagination"></div>
+</div>
+
   <p>We’re so excited to celebrate our big day with the people we love most.</p>
 </section>
 
@@ -194,6 +211,14 @@ footer {
       });
     });
   });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+const swiper = new Swiper('.swiper', {
+    loop: true,
+    pagination: { el: '.swiper-pagination' },
+    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
+});
 </script>
 
 </body>
