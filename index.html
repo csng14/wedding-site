@@ -12,11 +12,16 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <style>
   @media (max-width: 480px) {
-  .tab {
-    padding: 8px 12px;
-    font-size: 14px;
+  .swiper {
+    width: 100%;   /* full width is good */
+  }
+
+  .swiper-slide img {
+    max-height: 300px;   /* <-- adjust this number */
+    object-fit: cover;   /* keeps them framed nicely */
   }
 }
+
   /* Body & headings */
   body {
     margin: 0;
