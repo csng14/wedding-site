@@ -156,24 +156,31 @@ footer {
 }
 
 .text-container-home {
-  display: flex;
-  align-items: center;     /* vertical centering */
-  justify-content: center; /* center whole block on page */
-  gap: 16px;               /* space between text and gif */
-  margin-top: 10px;
-}
-
-.date-block {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+  position: relative;        /* allows the gif to be placed behind */
+  width: fit-content;        /* shrink-wraps to date text size */
+  margin: 0 auto;            /* centers the whole block */
+  padding: 20px 0;           /* space for the gif behind */
 }
 
 .smaller-gif {
-  width: 50px;   /* adjust: 60–100px usually looks nice */
-  height: auto;
-  opacity: 0.9;  /* keep it bright; change if you like */
+  position: absolute;
+  top: 50%;                  /* center vertically */
+  left: 50%;                 /* center horizontally */
+  transform: translate(-50%, -50%);
+  width: 180px;              /* adjust size as desired */
+  opacity: 0.6;              /* subtle */
+  z-index: 0;                /* behind text */
+  pointer-events: none;
 }
+
+.date-block {
+  position: relative;
+  z-index: 1;                /* text stays on top */
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
 
 
 .title-gif {
@@ -215,11 +222,18 @@ footer {
        class="title-gif" alt="">
    <h1 class="wedding-title">Carmen<br> & <br>Felix</h1>
    </div> 
-   <div class="text-container-home"><img src=https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcHJ3a3N4OGhvb2hvYmthcGxsbDdrMzZjc3ZqYjdwb2tyMDVtYTdrOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/Utu0kcL9R7BLiX6Mrm/giphy.gif class="smaller-gif" alt="">
+<div class="text-container-home">
+  <img
+    src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExazlrNzlxd3RiZ2ZsZmxvZTl4aWF1aXVkNWF6M2FmYm55bzdyaTRlZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/fBjSCeALSkCcgzpRJU/giphy.gif"
+    class="smaller-gif"
+    alt=""
+  >
   <div class="date-block">
     <h2 class="wedding-text">May 23, 2026</h2>
     <h2 class="wedding-text">Brooklyn, NY</h2>
   </div>
+</div>
+
 </div>
   <div class="swiper">
   <div class="swiper-wrapper">
