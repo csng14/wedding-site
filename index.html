@@ -154,12 +154,27 @@ footer {
   max-width: 650px;
   margin: 0 auto;
 }
+
 .text-container-home {
-  position: relative;
-  width: 90vw;
-  max-width: 650px;
-  margin: 0 auto;
+  display: flex;
+  align-items: center;     /* vertical centering */
+  justify-content: center; /* center whole block on page */
+  gap: 16px;               /* space between text and gif */
+  margin-top: 10px;
 }
+
+.date-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.smaller-gif {
+  width: 70px;   /* adjust: 60–100px usually looks nice */
+  height: auto;
+  opacity: 0.9;  /* keep it bright; change if you like */
+}
+
 
 .title-gif {
   position: absolute;
@@ -172,13 +187,12 @@ footer {
   pointer-events: none;
   z-index: 0;
 }
+
 .smaller-gif {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90vw;   /* 90% of the screen width */
-  max-width: 400px;
+  max-width: 220px;
   opacity: 0.7;
   pointer-events: none;
   z-index: 0;
@@ -211,9 +225,10 @@ footer {
        class="title-gif" alt="">
    <h1 class="wedding-title">Carmen<br> & <br>Felix</h1>
    </div> 
-   <div class="text-container-home"><img src=https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDI3ajN2b2FlcGNsamtnNDdlaTJyOXRxZHd0bmVseGI3ZHp1aTBicCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/eRFSNWmMeUuTVOsNxY/giphy.gif class="smaller-gif" alt="">
+   <div class="text-container-home"><img src=https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExazlrNzlxd3RiZ2ZsZmxvZTl4aWF1aXVkNWF6M2FmYm55bzdyaTRlZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/fBjSCeALSkCcgzpRJU/giphy.gif class="smaller-gif" alt="">
+  <div class="date-block">
   <h2 class="wedding-text">May 23, 2026</h2>
-  <h2 class="wedding-text">Brooklyn, NY</h2></div>
+  <h2 class="wedding-text">Brooklyn, NY</h2></div></div>
   <div class="swiper">
   <div class="swiper-wrapper">
     <div class="swiper-slide"><img src="images/carmen-punch.jpeg" /></div>
