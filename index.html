@@ -147,6 +147,27 @@ footer {
   }
 }
 
+.title-container {
+  position: relative;
+  display: inline-block;
+}
+
+.title-gif {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;       /* adjust size as needed */
+  pointer-events: none;  /* lets clicks go through to text if any */
+  z-index: 0;
+  opacity: 0.6;       /* optional: make it subtle */
+}
+
+.wedding-title {
+  position: relative;
+  z-index: 1;
+}
+
 </style>
 
 </head>
@@ -164,7 +185,10 @@ footer {
 
 <!-- Tabs Content -->
 <section id="hero" class="tab-content active">
-  <h1 class="wedding-title">Carmen & Felix</h1>
+  <div class="title-container">
+    <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGJsbXZ1Zm5zbTlibHEwa3JucmdkOTQ5ZHZiZ2FoNzVhYnV3azVuaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q/JyD8ApE8soxt3RCsoJ/giphy.gif"
+       class="title-gif" alt="">
+   <h1 class="wedding-title">Carmen & Felix</h1></div> 
   <h2 class="wedding-text">May 23, 2026</h2>
   <h2 class="wedding-text">Brooklyn, NY</h2>
   <div class="swiper">
