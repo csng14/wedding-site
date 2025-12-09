@@ -205,6 +205,15 @@ footer {
   z-index: 1;
 }
 
+.snail-gif {
+  position: static;      /* not absolute */
+  width: 140px;          /* adjust size as you like */
+  height: auto;
+  display: block;
+  margin: 10px auto 0;   /* center it under the text */
+  opacity: 1;            /* fully visible */
+}
+
 </style>
 
 </head>
@@ -297,9 +306,7 @@ footer {
 <section id="RSVP" class="tab-content">
   <h2>RSVP</h2>
   <p>Invites are coming through snail mail!</p>
-  <div class="text-container-home">
-    <img src="images/snail-hello.gif" class="smaller-gif" alt="">
-  </div>
+  <img src="images/snail-hello.gif" class="snail-gif" alt="cute snail">
 </section>
 
 <footer>
